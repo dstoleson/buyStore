@@ -1,9 +1,7 @@
-package dhs.buystore;
+package dhs.buystore.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.data.redis.core.RedisHash;
 
-@RedisHash("ProductInfo")
 public class ProductInfo {
 
     private Long id;
@@ -39,5 +37,23 @@ public class ProductInfo {
 
     public void setCurrentPrice(Price currentPrice) {
         this.currentPrice = currentPrice;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ProductInfo user = (ProductInfo) o;
+        return id != null &&
+                id.equals(user.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 }

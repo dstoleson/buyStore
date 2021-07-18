@@ -1,4 +1,4 @@
-package dhs.buystore;
+package dhs.buystore.config;
 
 import io.lettuce.core.RedisURI;
 import org.springframework.context.annotation.Bean;

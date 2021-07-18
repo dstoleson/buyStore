@@ -1,6 +1,8 @@
-package dhs.buystore;
+package dhs.buystore.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.Objects;
 
 public class Price {
 
@@ -27,5 +29,18 @@ public class Price {
 
     public void setCurrencyCode(String currencyCode) {
         this.currencyCode = currencyCode;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Price price = (Price) o;
+        return Objects.equals(value, price.value) && Objects.equals(currencyCode, price.currencyCode);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value, currencyCode);
     }
 }
