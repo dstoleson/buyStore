@@ -17,7 +17,6 @@ public class ProductService {
     private ProductDetailService productDetailService;
     private PriceService priceService;
 
-    // todo: update javadoc?
     /**
      * Get the product info for the given product.
      * @param productId The id of the product
@@ -36,7 +35,6 @@ public class ProductService {
         return productInfo;
     }
 
-    // todo: update javadoc?
     /**
      * Update the product info
      * @param productId The id of the product to update

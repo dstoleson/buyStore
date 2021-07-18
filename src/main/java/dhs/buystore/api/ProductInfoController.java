@@ -31,9 +31,6 @@ public class ProductInfoController {
     @GetMapping(value = "/products/{id}", produces = "application/json")
     public ProductInfo getProduct(@PathVariable Long id) {
 
-        // todo: get product name from product service
-        // todo: get product price from price service
-
         Optional<ProductInfo> productInfo = productService.getProductInfo(id);
         if (productInfo.isPresent()) {
             return productInfo.get();
@@ -50,7 +47,6 @@ public class ProductInfoController {
     @PutMapping(value = "/products/{id}", consumes = "application/json", produces = "application/json")
     public ProductInfo updateProduct(@PathVariable Long id, @RequestBody ProductInfo update) {
 
-        // todo: update price in price service
         Optional<ProductInfo> productInfo =  productService.updateProductInfo(id, update);
         if (productInfo.isPresent()) {
             return productInfo.get();
@@ -59,11 +55,8 @@ public class ProductInfoController {
         }
     }
 
-    // todo: this should be a REST client calling a product service
     @Autowired
     public void setProductService(ProductService productService) {
         this.productService = productService;
     }
-
-    // todo: add setPricingService -> REST client
 }
